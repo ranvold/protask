@@ -7,4 +7,6 @@ class Task < ApplicationRecord
 
   validates :name, presence: true
   validates :status, presence: true
+
+  scope :by_status, ->(status) { where(status:) }
 end

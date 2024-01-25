@@ -7,6 +7,7 @@ module Api
 
       def index
         @tasks = Task.where(project: params[:project_id])
+        @tasks = @tasks.by_status(params[:status]) if params[:status]
       end
 
       def show; end
