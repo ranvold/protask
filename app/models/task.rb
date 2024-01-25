@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Task < ApplicationRecord
-  enum :status, { new: 0, in_progress: 1, done: 2 }, default: :new
+  enum :status, { ready_to_go: 0, in_progress: 1, done: 2 }, default: :ready_to_go
 
   belongs_to :project
 
