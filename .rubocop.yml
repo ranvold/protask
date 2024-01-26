@@ -1,5 +1,7 @@
 require:
   - rubocop-rails
+  - rubocop-rspec
+  - rubocop-factory_bot
 
 # Disable inline documentation since it is not practical or desired
 # to add it to every class and module.
@@ -8,3 +10,6 @@ Style/Documentation:
 
 Metrics/MethodLength:
   Max: 24
+
+RSpec/MultipleExpectations:
+  Max: 3

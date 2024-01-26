@@ -25,4 +25,15 @@ group :development, :test do
 
   gem 'rubocop',       '1.60.1'
   gem 'rubocop-rails', '2.23.1'
+  gem 'rubocop-rspec', '2.26.1'
+
+  gem 'rspec-rails', '6.1.1'
+
+  gem 'faker', '3.2.3'
+end
+
+group :test do
+  gem 'shoulda-matchers', '6.1.0'
+
+  gem 'factory_bot_rails', '6.4.3'
 end
