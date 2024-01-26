@@ -30,6 +30,18 @@ module Protask
     # Common ones are `templates`, `generators`, or `middleware`, for example.
     config.autoload_lib(ignore: %w[assets tasks])
 
+    config.generators do |g|
+      g.test_framework(
+        :rspec,
+        fixtures: false,
+        view_specs: false,
+        helper_specs: false,
+        routing_specs: false,
+        request_specs: false,
+        controller_specs: false
+      )
+    end
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
@@ -42,5 +54,9 @@ module Protask
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+
+    config.session_store :cookie_store, key: :_interslice_session
+    config.middleware.insert_before Rack::Head, ActionDispatch::Session::CookieStore, config.session_options
+    config.middleware.insert_before ActionDispatch::Session::CookieStore, ActionDispatch::Cookies
   end
 end
